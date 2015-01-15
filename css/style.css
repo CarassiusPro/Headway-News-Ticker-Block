@@ -1,13 +1,15 @@
-.CPNewsTracker {
+.CPNewsTicker {
                        border: 1px solid #C20;
-	                    margin: 50px 0;
+                       font-family: Arial, sans-serif;
+                        font-size: 14px;
+	                   /*margin: 50px 0;*/
 	                    font-style: italic;
 	                    position: relative;
-	                    padding: 0 0 0 80px;
+	                    padding: 0 0 0 120px;
 	                    box-shadow: 0 2px 5px -3px #000;
 	                    border-radius: 3px;
-               }
-.CPNewsTracker:before {
+                }
+.CPNewsTicker:before {
                         content: "Latest News";
 	                    display: inline-block;
 	                    font-style: normal;
@@ -18,8 +20,9 @@
 	                    position: absolute;
 	                    top: 0;
 	                    left: 0;
+                        height: auto;
                }
-.CPNewsTracker:after {
+.CPNewsTicker:after {
                         content: '';
                         display: block;
                         top: 0;
@@ -27,7 +30,10 @@
                         background: linear-gradient(#FFF, rgba(255, 255, 255, 0));
                         height: 20px;
                }
-.CPNewsTracker ul li {
+.CPNewsTicker ul li {
                         list-style: none;
                         padding: 10px 0;
-               }              
+                }  
+.CPNewsTicker a {
+                        text-decoration: none;
+                }  
