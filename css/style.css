@@ -1,0 +1,33 @@
+.CPNewsTracker {
+                       border: 1px solid #C20;
+	                    margin: 50px 0;
+	                    font-style: italic;
+	                    position: relative;
+	                    padding: 0 0 0 80px;
+	                    box-shadow: 0 2px 5px -3px #000;
+	                    border-radius: 3px;
+               }
+.CPNewsTracker:before {
+                        content: "Latest News";
+	                    display: inline-block;
+	                    font-style: normal;
+	                    background: #C20;
+	                    padding: 10px;
+	                    color: #FFF;
+	                    font-weight: bold;
+	                    position: absolute;
+	                    top: 0;
+	                    left: 0;
+               }
+.CPNewsTracker:after {
+                        content: '';
+                        display: block;
+                        top: 0;
+                        left: 80px;
+                        background: linear-gradient(#FFF, rgba(255, 255, 255, 0));
+                        height: 20px;
+               }
+.CPNewsTracker ul li {
+                        list-style: none;
+                        padding: 10px 0;
+               }              
