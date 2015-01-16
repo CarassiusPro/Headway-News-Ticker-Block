@@ -5,6 +5,19 @@ class HeadwayNewsTickerBlockOptions extends HeadwayBlockOptionsAPI {
     public $tabs = array(
         'settings-tab' => 'Settings'
     );
+    
+    function get_categories() {
+    	
+		$category_options = array();
+		
+		$categories_select_query = get_categories();
+		
+		foreach ($categories_select_query as $category)
+			$category_options[$category->term_id] = $category->name;
+
+		return $category_options;
+		
+	}
 
 	public $inputs = array(
 		'settings-tab' => array(
@@ -32,7 +45,15 @@ class HeadwayNewsTickerBlockOptions extends HeadwayBlockOptionsAPI {
 					),
 					
 				),
-
+                
+                'ticker-categories' => array(
+                    'type' => 'text',
+                    'name' => 'ticker-categories',
+                    'label' => 'Category ID',
+                    'default' => '',
+                    'tooltip' => 'You can get your category ID by editing a category in your dashboard.<br />You ID is then displayed in the link at the top of your browser.<br />Tip: You can display multiple categories by seperating with a comma eg: 2, 4',
+                    ),
+                
 			'ticker-interval' => array(
 				'type' => 'slider',
 					'name' => 'ticker-interval',
@@ -54,6 +75,9 @@ class HeadwayNewsTickerBlockOptions extends HeadwayBlockOptionsAPI {
 					'slider-max' => '10',
 					'slider-interval' => '1',
 					),	
+                    
+                    
+                    
 				),
 	
 	);
