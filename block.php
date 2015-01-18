@@ -6,7 +6,7 @@ class HeadwayNewsTickerBlock extends HeadwayBlockAPI {
     public $options_class = 'HeadwayNewsTickerBlockOptions';
     
         public static function enqueue_action($block_id, $block, $original_block = null) {
-        	wp_enqueue_script('jquery');
+            wp_enqueue_script('jquery');
 			wp_enqueue_style('newsticker-css', plugins_url('/css/style.css' , __FILE__),'','',false);
 			wp_enqueue_script('easy-ticker', plugins_url('/js/jquery.easy-ticker.js' , __FILE__),'','',false);
 			wp_enqueue_script('jquery-ticker', plugins_url('/js/jquery.easing.min.js' , __FILE__),'','',false);
@@ -24,6 +24,21 @@ class HeadwayNewsTickerBlock extends HeadwayBlockAPI {
             });' . "\n";
 		
 	}
+	
+	public static function dynamic_css($block_id, $block = false) {
+		if ( !$block )
+			$block = HeadwayBlocksData::get_block($block_id);
+			$tickertext = parent::get_setting($block, 'ticker-text', '');
+			$css = '';
+				$css .= '
+					#block-' .$block_id . ' .CPNewsTicker:before {
+					content: "' . $tickertext . '";
+					}
+				';
+			return $css;
+	}
+	
+	
 	
 		function content($block) {
             
@@ -53,4 +68,33 @@ class HeadwayNewsTickerBlock extends HeadwayBlockAPI {
 			echo '</div>';
 		  
 		}
+		
+		
+		function setup_elements() {
+
+		$this->register_block_element(array(
+			'id' => 'ticker-title',
+			'name' => 'Ticker Title',
+			'description' => 'Contains News Ticker Title',
+			'selector' => '.CPNewsTicker:before',
+			'properties' => array('background', 'fonts', 'padding')
+		));
+
+		$this->register_block_element(array(
+			'id' => 'ticker-caption',
+			'name' => 'Ticker Post',
+			'selector' => '.CPNewsTicker',
+			'properties' => array('background', 'padding', 'fonts', 'corners', 'borders', 'box-shadow')
+		));
+
+		$this->register_block_element(array(
+			'id' => 'ticker-caption',
+			'name' => 'Ticker Post',
+			'selector' => '.CPNewsTicker a',
+			'properties' => array('background', 'padding', 'fonts', 'corners', 'borders', 'box-shadow')
+		));
+
+	}
+
+	
 }
