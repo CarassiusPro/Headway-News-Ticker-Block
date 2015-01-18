@@ -1,3 +1,4 @@
+
 <?php 
 class HeadwayNewsTickerBlock extends HeadwayBlockAPI {
     public $id = 'news-ticker-block';
@@ -84,7 +85,11 @@ class HeadwayNewsTickerBlock extends HeadwayBlockAPI {
 			'id' => 'ticker-caption',
 			'name' => 'Ticker Post',
 			'selector' => '.CPNewsTicker',
-			'properties' => array('background', 'padding', 'fonts', 'corners', 'borders', 'box-shadow')
+			'properties' => array('background', 'padding', 'fonts', 'corners', 'borders', 'box-shadow'),
+			'states' => array(
+				'Selected' => '.CPNewsTicker a.selected', 
+				'Hover' => '.CPNewsTicker a:hover'
+			)
 		));
 
 		$this->register_block_element(array(
