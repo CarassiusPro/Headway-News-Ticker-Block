@@ -3,13 +3,13 @@
 Plugin Name: Headway News Ticker Block
 Plugin URI: http://www.jonmather.info
 Description: News Ticker block for Headway
-Version: 1.1
+Version: 1.2
 Author: Jon Mather
 Author URI: http://www.jonmather.info
 License: GNU GPL v2
 */
 
-define('NEWSTICKER_BLOCK_VERSION', '1.1');
+define('NEWSTICKER_BLOCK_VERSION', '1.2');
 
 add_action('after_setup_theme', 'register_newsticker_block');
 function register_newsticker_block() {
