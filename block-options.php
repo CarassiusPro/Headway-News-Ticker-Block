@@ -45,13 +45,21 @@ class HeadwayNewsTickerBlockOptions extends HeadwayBlockOptionsAPI {
 					),
 					
 				),
-                
+                /*
+                'ticker-categories' => array(
+                    'type' => 'multi-select',
+                    'name' => 'ticker-categories',
+                    'label' => 'Categories',
+                    'tooltip' => '',
+                    'options' => 'get_categories()'
+                ),
+                */
                 'ticker-categories' => array(
                     'type' => 'text',
                     'name' => 'ticker-categories',
                     'label' => 'Category ID',
                     'default' => '',
-                    'tooltip' => 'You can get your category ID by editing a category in your dashboard.<br />You ID is then displayed in the link at the top of your browser.<br />Tip: You can display multiple categories by seperating with a comma eg: 2, 4',
+                    'tooltip' => 'You can get your category ID by editing a category in your dashboard.<br />You ID is then displayed in the link at the top of your browser.',
                     ),
                 
 			'ticker-interval' => array(
@@ -76,7 +84,13 @@ class HeadwayNewsTickerBlockOptions extends HeadwayBlockOptionsAPI {
 					'slider-interval' => '1',
 					),	
                     
-                    
+                    'ticker-text' => array(
+    			     'type' => 'text',
+					'name' => 'ticker-text',
+					'label' => 'Label',
+					'tooltip' => 'Choose your news feed title',
+					'default' => 'Latest News',
+					),	
                     
 				),
 	
